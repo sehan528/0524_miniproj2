@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 삭제 폼</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>게시글 삭제 폼</h1>
+    <form action="/delete" method="post">
+        <input type="hidden" name="id" th:value="${boardId}">
+        <div class="form-group">
+            <label for="password">게시글 암호:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">확인</button>
+    </form>
+</div>
+</body>
+</html>

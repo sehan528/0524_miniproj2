@@ -1,0 +1,12 @@
+#spring.application.name=lionminiproj2
+
+spring:
+  application:
+    name: lionminiproj2
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/board
+    username: root
+    password: root1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 상세정보 페이지</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/board.css}">
+</head>
+<body>
+<div class="container">
+  <h1 th:text="${board.title}"></h1>
+
+  <div th:if="${board}">
+    <p><strong>ID:</strong> <span th:text="${board.id}"></span></p>
+    <p><strong>Name:</strong> <span th:text="${board.name}"></span></p>
+    <p><strong>Content:</strong> <span th:text="${board.content}"></span></p>
+    <p><strong>Created At:</strong> <span th:text="${#temporals.format(board.createdAt, 'yyyy/MM/dd HH:mm')}"></span></p>
+
+    <!-- 삭제와 수정 링크 -->
+    <p>
+      <a href="/list" class="btn btn-primary">List</a>
+      <a th:href="@{/deleteform/{id}(id=${board.id})}" class="btn btn-primary">삭제</a>
+      <a th:href="@{/updateform/{id}(id=${board.id})}" class="btn btn-primary">수정</a>
+    </p>
+  </div>
+</div>
+</body>
+</html>

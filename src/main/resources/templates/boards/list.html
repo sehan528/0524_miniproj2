@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Board List</h1>
+    <table class="table" th:if="${!boards.empty}">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Created At</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="board : ${boards}">
+            <td th:text="${board.id}"></td>
+            <td th:text="${board.name}"></td>
+            <td>
+                <a th:href="@{/view/{id} (id=${board.id})}"  th:text="${board.title}"></a>
+            </td>
+            <td th:text="${#temporals.format(board.createdAt, 'yyyy/MM/dd')}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${boards.totalPages > 1}">
+        <ul class="pagination">
+            <li th:each="i : ${#numbers.sequence(1, boards.totalPages)}"
+                th:class="${i == boards.number + 1} ? 'page-item active' : 'page-item'">
+                <a class="page-link" th:href="@{/list(page=${i})}" th:text="${i}"></a>
+            </li>
+        </ul>
+    </div>
+
+    <a th:href="@{/writeform}" class="btn btn-primary">신규 게시글 등록</a>
+</div>
+</body>
+</html>
