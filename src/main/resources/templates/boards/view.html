@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <title>게시글 상세정보 페이지</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" th:href="@{/css/board.css}">
+  <link rel="stylesheet" th:href="@{/css/layout.css}">
 </head>
 <body>
 <div class="container">
   <h1 th:text="${board.title}"></h1>
+
+  <hr>
 
   <div th:if="${board}">
     <p><strong>ID:</strong> <span th:text="${board.id}"></span></p>
@@ -16,8 +18,10 @@
     <p><strong>Content:</strong> <span th:text="${board.content}"></span></p>
     <p><strong>Created At:</strong> <span th:text="${#temporals.format(board.createdAt, 'yyyy/MM/dd HH:mm')}"></span></p>
 
+    <hr>
+
     <!-- 삭제와 수정 링크 -->
-    <p>
+    <p class="position">
       <a href="/list" class="btn btn-primary">List</a>
       <a th:href="@{/deleteform/{id}(id=${board.id})}" class="btn btn-primary">삭제</a>
       <a th:href="@{/updateform/{id}(id=${board.id})}" class="btn btn-primary">수정</a>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Board List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+
     <style>
         .active {
             font-weight: bold;
@@ -35,7 +37,7 @@
         </tbody>
     </table>
 
-    <div th:if="${boards.totalPages > 1}">
+    <div th:if="${boards.totalPages > 1}" class="position">
         <ul class="pagination">
             <li th:each="i : ${#numbers.sequence(1, boards.totalPages)}"
                 th:class="${i == boards.number + 1} ? 'page-item active' : 'page-item'">
@@ -43,8 +45,9 @@
             </li>
         </ul>
     </div>
-
-    <a th:href="@{/writeform}" class="btn btn-primary">신규 게시글 등록</a>
+    <div class="position">
+        <a th:href="@{/writeform}" class="btn btn-primary ">신규 게시글 등록</a>
+    </div>
 </div>
 </body>
 </html>

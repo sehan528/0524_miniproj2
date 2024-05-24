@@ -1,6 +1,5 @@
 body {
-    font-family: "Arial", sans-serif;
-    margin: 40px;
+    font-family: Arial, sans-serif;
 }
 table {
     width: 100%;
@@ -42,4 +41,10 @@ li a.active {
     display: block;
     text-align: center;
     margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

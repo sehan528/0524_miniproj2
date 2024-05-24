@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>게시글 삭제 폼</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
 </head>
 <body>
 <div class="container">
     <h1>게시글 삭제 폼</h1>
+
+    <hr>
+
     <form action="/delete" method="post">
         <input type="hidden" name="id" th:value="${boardId}">
         <div class="form-group">

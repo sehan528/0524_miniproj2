@@ -1,0 +1,28 @@
+body {
+    background-color: #d9b1b1;
+}
+
+a {
+    margin: 0 10px;
+}
+
+.container {
+    background-color: white;
+    margin: 10% auto 50px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+    padding: 10px 20px;
+}
+
+.position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

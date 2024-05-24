@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.*;
 public class BoardController {
     private final BoardService service;
 
+    @GetMapping("/")
+    public String redirectToList() {
+        return "redirect:/list";
+    }
+
     @GetMapping("/list")
     // 1. 게시글 조회
     public String ListHtml(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size) {
